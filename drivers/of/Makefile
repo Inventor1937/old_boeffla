@@ -1,3 +1,5 @@
+CFLAGS_KERNEL := -fno-unsafe-math-optimizations -fno-strict-aliasing
+
 obj-y = base.o device.o platform.o
 obj-$(CONFIG_OF_DYNAMIC) += dynamic.o
 obj-$(CONFIG_OF_FLATTREE) += fdt.o

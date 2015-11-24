@@ -1,5 +1,8 @@
 KASAN_SANITIZE_scm.o := n
 
+CFLAGS_ipc_router_hsic_xprt.o := -fno-unsafe-math-optimizations -fno-strict-aliasing
+CFLAGS_ipc_router_smd_xprt.o := -fno-unsafe-math-optimizations -fno-strict-aliasing
+
 CFLAGS_KERNEL := -Wno-unused-label
 CFLAGS_scm.o :=$(call as-instr,.arch_extension sec,-DREQUIRES_SEC=1)
 
