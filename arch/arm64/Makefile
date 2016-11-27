@@ -17,17 +17,9 @@ GZFLAGS		:=-9
 
 KBUILD_DEFCONFIG := defconfig
 
-GEN_OPT_FLAGS := $(call cc-option, -mpc-relative-literal-loads) \
- -g0 \
- -DNDEBUG \
- -fomit-frame-pointer \
- -fmodulo-sched \
- -fmodulo-sched-allow-regmoves \
- -fivopts
-
 KBUILD_CFLAGS	+= -mgeneral-regs-only
-KBUILD_CFLAGS	+= -fno-pic
-KBUILD_CFLAGS	+= $(GEN_OPT_FLAGS)
+KBUILD_CFLAGS	+= -fno-pic -Wno-memset-transposed-args -Wno-unused-const-variable -Wno-misleading-indentation -Wno-tautological-compare -Wno-bool-compare
+KBUILD_CFLAGS	+= $(GRAPHITE) $(EXTRA_OPTS) $(CORTEX_OPTS)
 
 ifeq ($(CONFIG_CPU_BIG_ENDIAN), y)
 KBUILD_CPPFLAGS	+= -mbig-endian
